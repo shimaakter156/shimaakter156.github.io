@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shima Akter | Full-stack Web Developer</title>
+<meta name="description" content="Shima Akter — Full-stack Web Developer (Laravel, Vue.js, SQL Server) building enterprise applications at ACI Limited Bangladesh.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0b1020; --bg2: #121933; --card: #161f3d; --text: #e7ebf7;
+    --muted: #9aa5c4; --accent: #5b8cff; --accent2: #36d1b6; --border: #243056;
+  }
+  [data-theme="light"] {
+    --bg: #f6f8fc; --bg2: #ffffff; --card: #ffffff; --text: #16203a;
+    --muted: #5b6684; --accent: #3a6cf0; --accent2: #12a58c; --border: #dfe5f2;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: Inter, system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; transition: background .3s, color .3s; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+
+  nav { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--bg) 85%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .logo { font-weight: 800; font-size: 1.2rem; }
+  .logo span { color: var(--accent); }
+  .links { display: flex; gap: 22px; align-items: center; }
+  .links a { color: var(--muted); font-weight: 500; font-size: .95rem; }
+  .links a:hover { color: var(--text); }
+  .theme-btn { background: var(--card); border: 1px solid var(--border); color: var(--text); border-radius: 8px; padding: 6px 10px; cursor: pointer; font-size: 1rem; }
+  @media (max-width: 720px) { .links a { display: none; } }
+
+  .hero { padding: 90px 0 70px; }
+  .hero .hi { color: var(--accent2); font-weight: 600; margin-bottom: 12px; }
+  .hero h1 { font-size: clamp(2.4rem, 6vw, 4rem); line-height: 1.1; font-weight: 800; }
+  .hero h1 .grad { background: linear-gradient(90deg, var(--accent), var(--accent2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .hero p { color: var(--muted); font-size: 1.12rem; max-width: 680px; margin: 20px 0 32px; }
+  .btns { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn { padding: 12px 22px; border-radius: 10px; font-weight: 600; border: 1px solid var(--border); transition: transform .2s; }
+  .btn:hover { transform: translateY(-2px); }
+  .btn.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; margin-top: 56px; }
+  .stat { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 20px; }
+  .stat b { display: block; font-size: 1.8rem; font-weight: 800; color: var(--accent); }
+  .stat span { color: var(--muted); font-size: .9rem; }
+
+  section { padding: 64px 0; }
+  .title { font-size: 1.9rem; font-weight: 800; margin-bottom: 8px; }
+  .sub { color: var(--muted); margin-bottom: 32px; }
+
+  .skill-groups { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+  .skill-group h3 { font-size: .85rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: 12px; }
+  .skills { display: flex; flex-wrap: wrap; gap: 10px; }
+  .skill { background: var(--card); border: 1px solid var(--border); padding: 7px 14px; border-radius: 999px; font-weight: 500; font-size: .92rem; }
+  .learning { margin-top: 28px; color: var(--muted); }
+  .learning b { color: var(--accent2); }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 22px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; transition: transform .2s, border-color .2s; }
+  .card:hover { transform: translateY(-4px); border-color: var(--accent); }
+  .card .meta { font-size: .8rem; color: var(--accent2); font-weight: 600; margin-bottom: 6px; }
+  .card h3 { font-size: 1.15rem; margin-bottom: 4px; }
+  .card .kind { color: var(--muted); font-style: italic; font-size: .92rem; margin-bottom: 12px; }
+  .card ul { color: var(--muted); padding-left: 18px; font-size: .93rem; flex: 1; margin-bottom: 16px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag { font-size: .78rem; color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, transparent); padding: 3px 10px; border-radius: 6px; }
+
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  @media (max-width: 820px) { .two { grid-template-columns: 1fr; } }
+  .timeline { border-left: 2px solid var(--border); padding-left: 26px; }
+  .item { position: relative; margin-bottom: 28px; }
+  .item::before { content: ""; position: absolute; left: -33px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); }
+  .item .when { color: var(--accent2); font-size: .88rem; font-weight: 600; }
+  .item h3 { font-size: 1.08rem; }
+  .item .org { color: var(--muted); font-style: italic; font-size: .93rem; }
+  .item ul { color: var(--muted); padding-left: 18px; margin-top: 6px; font-size: .93rem; }
+  .item p { color: var(--muted); font-size: .93rem; }
+
+  .contact { text-align: center; background: var(--bg2); border: 1px solid var(--border); border-radius: 20px; padding: 56px 24px; }
+  .contact .btns { justify-content: center; margin-top: 24px; }
+  footer { text-align: center; color: var(--muted); padding: 40px 0; font-size: .9rem; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="#" class="logo">Shima<span>.</span></a>
+    <div class="links">
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#training">Training</a>
+      <a href="#contact">Contact</a>
+      <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">☀️</button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="hi">👋 Hi, I'm</p>
+    <h1>Shima Akter<br><span class="grad">Full-stack Web Developer</span></h1>
+    <p>I build enterprise-scale web applications for retail, pharmaceutical and logistics businesses at ACI Limited Bangladesh. Strong in Laravel, Vue.js and Microsoft SQL Server, with hands-on experience running multi-database systems across 1000+ retail outlets.</p>
+    <div class="btns">
+      <a href="#projects" class="btn primary">View my work</a>
+      <a href="#contact" class="btn">Contact me</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>2+</b><span>Years professional experience</span></div>
+      <div class="stat"><b>1000+</b><span>Retail outlets served</span></div>
+      <div class="stat"><b>7</b><span>Enterprise systems built</span></div>
+      <div class="stat"><b>3.50</b><span>CGPA, BSc in CS</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="skills">
+  <div class="wrap">
+    <h2 class="title">Skills</h2>
+    <p class="sub">Tools and technologies I use in production.</p>
+    <div class="skill-groups">
+      <div class="skill-group">
+        <h3>Languages</h3>
+        <div class="skills"><span class="skill">PHP</span><span class="skill">JavaScript</span><span class="skill">Python</span><span class="skill">SQL (T-SQL)</span><span class="skill">HTML5</span><span class="skill">CSS3</span><span class="skill">Bash</span></div>
+      </div>
+      <div class="skill-group">
+        <h3>Frameworks & Libraries</h3>
+        <div class="skills"><span class="skill">Laravel</span><span class="skill">Vue.js</span><span class="skill">Vuex</span><span class="skill">Vue Router</span><span class="skill">Chart.js</span><span class="skill">Tailwind CSS</span><span class="skill">Bootstrap</span><span class="skill">jQuery</span><span class="skill">Axios</span></div>
+      </div>
+      <div class="skill-group">
+        <h3>Databases</h3>
+        <div class="skills"><span class="skill">SQL Server</span><span class="skill">MySQL</span><span class="skill">Stored Procedures</span><span class="skill">Query Optimisation</span><span class="skill">Multi-DB Architecture</span></div>
+      </div>
+      <div class="skill-group">
+        <h3>APIs & Tools</h3>
+        <div class="skills"><span class="skill">REST APIs</span><span class="skill">JWT Auth</span><span class="skill">Postman</span><span class="skill">Git / GitLab</span><span class="skill">Jira</span><span class="skill">Power BI</span><span class="skill">Composer</span><span class="skill">NPM</span></div>
+      </div>
+    </div>
+    <p class="learning"><b>Currently learning:</b> FastAPI, TensorFlow, PyTorch, deep learning, Docker, Kubernetes</p>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <h2 class="title">Projects</h2>
+    <p class="sub">Enterprise systems I've built and maintain at ACI Limited.</p>
+    <div class="grid">
+      <div class="card">
+        <div class="meta">2023 – Present · All Divisions</div>
+        <h3>SDMS — Sales & Distribution Management</h3>
+        <div class="kind">Enterprise-wide sales and distribution system</div>
+        <ul><li>Multi-database architecture serving 1000+ retail outlets</li><li>Sales data maintained by distribution channel</li><li>Centralised data for pharma, consumer brands and logistics</li></ul>
+        <div class="tags"><span class="tag">Laravel</span><span class="tag">Android</span><span class="tag">SQL Server</span></div>
+      </div>
+      <div class="card">
+        <div class="meta">2023 – Present · ACI Limited</div>
+        <h3>HR Connect — HRMS</h3>
+        <div class="kind">Human Resource Management System</div>
+        <ul><li>Leave, action plans, training and tax acknowledgement modules</li><li>Approval workflows, email templates and audit logging</li><li>Multi-level approval chains for SEP workflows</li></ul>
+        <div class="tags"><span class="tag">Laravel</span><span class="tag">Vue.js</span><span class="tag">SQL Server</span></div>
+      </div>
+      <div class="card">
+        <div class="meta">2024 – Present · Consumer Brands</div>
+        <h3>Field Force Tracker</h3>
+        <div class="kind">Real-time field force tracking system</div>
+        <ul><li>Tracks field activities and hourly schedules</li><li>Location-based tracking with interactive dashboards</li><li>Performance and productivity analysis for sales teams</li></ul>
+        <div class="tags"><span class="tag">Laravel</span><span class="tag">Vue.js</span><span class="tag">SQL Server</span><span class="tag">Postman</span></div>
+      </div>
+      <div class="card">
+        <div class="meta">2024 – Present · Logistics Division</div>
+        <h3>DSC — Daily Sales Collection</h3>
+        <div class="kind">Logistics and finance management system</div>
+        <ul><li>Tracks daily collections and outlet transactions</li><li>Billing and purchase requisition module</li><li>Automated reconciliation and audit trails</li></ul>
+        <div class="tags"><span class="tag">Laravel</span><span class="tag">Vue.js</span><span class="tag">SQL Server</span></div>
+      </div>
+      <div class="card">
+        <div class="meta">2024 – Present · PremiaFlex</div>
+        <h3>PremiaFlex Dashboard</h3>
+        <div class="kind">Business intelligence dashboard</div>
+        <ul><li>Production credit analytics and target monitoring</li><li>Real-time metrics with Chart.js</li><li>Business performance reporting</li></ul>
+        <div class="tags"><span class="tag">Laravel</span><span class="tag">Vue.js</span><span class="tag">Chart.js</span><span class="tag">SQL Server</span></div>
+      </div>
+      <div class="card">
+        <div class="meta">2024 – Present · CCPH Business</div>
+        <h3>DGA — Demand Generation Activities</h3>
+        <div class="kind">Marketing and sales activity tracking</div>
+        <ul><li>Campaign planning and management</li><li>ROI analysis and real-time activity monitoring</li><li>Campaign effectiveness analytics</li></ul>
+        <div class="tags"><span class="tag">Laravel</span><span class="tag">Vue.js</span><span class="tag">SQL Server</span></div>
+      </div>
+      <div class="card">
+        <div class="meta">2024 – Present · ACI Motors</div>
+        <h3>DMS — Dealer Management System</h3>
+        <div class="kind">Dealer management solution</div>
+        <ul><li>Dealer activity and performance tracking</li><li>Inventory and order processing</li><li>Reporting dashboard with filtering and export</li></ul>
+        <div class="tags"><span class="tag">Laravel</span><span class="tag">Vue.js</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap two">
+    <div>
+      <h2 class="title">Experience</h2>
+      <p class="sub">Where I work.</p>
+      <div class="timeline">
+        <div class="item">
+          <div class="when">03/2023 – Present</div>
+          <h3>Web Developer</h3>
+          <div class="org">ACI Limited Bangladesh — MIS Department</div>
+          <ul>
+            <li>Optimised SQL queries, schemas and stored procedures across 1000+ outlet databases</li>
+            <li>Built responsive interfaces with Vue.js and Vuex</li>
+            <li>Developed Laravel applications with RESTful API design</li>
+            <li>Integrated biometric devices, bKash payment gateway and thermal printers for POS</li>
+          </ul>
+        </div>
+        <div class="item">
+          <div class="when">11/2019 – 12/2022</div>
+          <h3>Student Ambassador</h3>
+          <div class="org">IUBAT</div>
+          <p>Organised professional events, coordinated campus programmes and mentored junior students.</p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h2 class="title">Education & Awards</h2>
+      <p class="sub">Where I studied.</p>
+      <div class="timeline">
+        <div class="item">
+          <div class="when">2019 – 2022</div>
+          <h3>BSc in Computer Science</h3>
+          <div class="org">International University of Business Agriculture and Technology (IUBAT)</div>
+          <p>CGPA 3.50 / 4.00 · Thesis: Machine learning with Python and TensorFlow</p>
+        </div>
+        <div class="item">
+          <div class="when">12/2022</div>
+          <h3>Student Ambassador Excellence Award</h3>
+          <div class="org">IUBAT</div>
+        </div>
+        <div class="item">
+          <div class="when">2021</div>
+          <h3>British Council English Written Examination</h3>
+          <div class="org">British Council · English C1</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="training">
+  <div class="wrap">
+    <h2 class="title">Courses & Training</h2>
+    <p class="sub">Always learning.</p>
+    <div class="timeline">
+      <div class="item"><div class="when">11/2025 – Present</div><h3>Mastering DevOps: Fundamentals to Advanced</h3><p>CI/CD, containerisation and automation</p></div>
+      <div class="item"><div class="when">2025</div><h3>Data Analyst Training</h3><p>Analytics, visualisation and reporting</p></div>
+      <div class="item"><div class="when">2024</div><h3>MS Power BI — Comprehensive & Advanced</h3><p>Data analysis, modelling and BI dashboards</p></div>
+      <div class="item"><div class="when">2023</div><h3>Laravel · Database Optimisation · Agile · Cybersecurity</h3><p>ACI Limited training programmes</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact">
+      <h2 class="title">Let's work together</h2>
+      <p class="sub" style="margin-bottom:0">Based in Dhaka, Bangladesh · Open to opportunities and collaborations.</p>
+      <div class="btns">
+        <a href="mailto:shimaakter156@gmail.com" class="btn primary">Email me</a>
+        <a href="https://github.com/shimaakter156" target="_blank" rel="noopener" class="btn">GitHub</a>
+        <a href="https://linkedin.com/in/shima-akter-the-web-developer" target="_blank" rel="noopener" class="btn">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>© <span id="year"></span> Shima Akter</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const btn = document.getElementById('themeBtn');
+  const root = document.documentElement;
+  let saved = null;
+  try { saved = localStorage.getItem('theme'); } catch (e) {}
+  if (saved) root.dataset.theme = saved;
+  const icon = () => btn.textContent = root.dataset.theme === 'light' ? '🌙' : '☀️';
+  icon();
+  btn.onclick = () => {
+    root.dataset.theme = root.dataset.theme === 'light' ? 'dark' : 'light';
+    icon();
+    try { localStorage.setItem('theme', root.dataset.theme); } catch (e) {}
+  };
+</script>
+</body>
+</html>
