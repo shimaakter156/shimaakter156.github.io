@@ -79,6 +79,16 @@
   .item ul { color: var(--muted); padding-left: 18px; margin-top: 6px; font-size: .93rem; }
   .item p { color: var(--muted); font-size: .93rem; }
 
+  .shots-btn { margin-top: 14px; align-self: flex-start; background: none; border: 1px solid var(--accent); color: var(--accent); border-radius: 8px; padding: 7px 14px; font: inherit; font-weight: 600; font-size: .88rem; cursor: pointer; }
+  .shots-btn:hover { background: var(--accent); color: #fff; }
+  .lightbox { position: fixed; inset: 0; z-index: 50; background: rgba(5,8,18,.92); display: none; flex-direction: column; align-items: center; justify-content: center; padding: 20px; }
+  .lightbox.open { display: flex; }
+  .lightbox img { max-width: 100%; max-height: 78vh; border-radius: 10px; box-shadow: 0 10px 40px rgba(0,0,0,.5); }
+  .lb-cap { color: #e7ebf7; margin-top: 14px; font-weight: 600; text-align: center; }
+  .lb-btn { position: absolute; background: rgba(255,255,255,.12); border: 0; color: #fff; font-size: 1.6rem; width: 46px; height: 46px; border-radius: 50%; cursor: pointer; }
+  .lb-btn:hover { background: rgba(255,255,255,.25); }
+  .lb-prev { left: 16px; top: 50%; } .lb-next { right: 16px; top: 50%; } .lb-close { right: 16px; top: 16px; }
+
   .contact { text-align: center; background: var(--bg2); border: 1px solid var(--border); border-radius: 20px; padding: 56px 24px; }
   .contact .btns { justify-content: center; margin-top: 24px; }
   footer { text-align: center; color: var(--muted); padding: 40px 0; font-size: .9rem; }
@@ -323,7 +333,55 @@
 
 <footer>© <span id="year"></span> Shima Akter</footer>
 
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
+  <button class="lb-btn lb-close" id="lbClose" aria-label="Close">×</button>
+  <button class="lb-btn lb-prev" id="lbPrev" aria-label="Previous">‹</button>
+  <img id="lbImg" alt="">
+  <div class="lb-cap" id="lbCap"></div>
+  <button class="lb-btn lb-next" id="lbNext" aria-label="Next">›</button>
+</div>
+
 <script>
+  /* ===== SCREENSHOTS =====
+     1. Put images in screenshots/<key>/  (e.g. screenshots/ams/dashboard.png)
+     2. Add the file names to the list below.
+     A project with an empty list shows no button.
+     Keys = first word of the project title, lowercase. */
+  const SCREENSHOTS = {
+    sdms: [], hr: [], field: [], dsc: [], premiaflex: [], dga: [], dms: [],
+    ams: [], dpms: [], ah: [], product: [], customer: [], water: []
+  };
+
+  const lb = document.getElementById('lightbox'), lbImg = document.getElementById('lbImg'), lbCap = document.getElementById('lbCap');
+  let cur = [], idx = 0, curTitle = '';
+  const show = () => {
+    lbImg.src = cur[idx];
+    lbCap.textContent = curTitle + (cur.length > 1 ? `  (${idx + 1} / ${cur.length})` : '');
+    document.getElementById('lbPrev').style.display = document.getElementById('lbNext').style.display = cur.length > 1 ? '' : 'none';
+  };
+  const step = d => { idx = (idx + d + cur.length) % cur.length; show(); };
+  const close = () => { lb.classList.remove('open'); document.body.style.overflow = ''; };
+
+  document.querySelectorAll('#projects .card').forEach(card => {
+    const title = card.querySelector('h3').textContent;
+    const key = title.split(/[\s—]/)[0].toLowerCase();
+    const files = SCREENSHOTS[key] || [];
+    if (!files.length) return;
+    const b = document.createElement('button');
+    b.className = 'shots-btn';
+    b.textContent = `📷 View screenshots (${files.length})`;
+    b.onclick = () => { cur = files.map(f => `screenshots/${key}/${f}`); idx = 0; curTitle = title; show(); lb.classList.add('open'); document.body.style.overflow = 'hidden'; };
+    card.appendChild(b);
+  });
+  document.getElementById('lbClose').onclick = close;
+  document.getElementById('lbPrev').onclick = () => step(-1);
+  document.getElementById('lbNext').onclick = () => step(1);
+  lb.onclick = e => { if (e.target === lb) close(); };
+  document.addEventListener('keydown', e => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') close(); else if (e.key === 'ArrowLeft') step(-1); else if (e.key === 'ArrowRight') step(1);
+  });
+
   document.getElementById('year').textContent = new Date().getFullYear();
   const btn = document.getElementById('themeBtn');
   const root = document.documentElement;
