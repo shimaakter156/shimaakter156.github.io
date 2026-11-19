@@ -334,12 +334,7 @@
     a.className = 'demo-btn';
     a.textContent = '✉ Request a demo';
     a.href = 'mailto:shimaakter156@gmail.com?subject=' + encodeURIComponent('Demo request: ' + title)
-      + '&body=' + encodeURIComponent('Hi Shima,
-
-I would like to see a demo of ' + title + '.
-
-Thanks,
-');
+      + '&body=' + encodeURIComponent(`Hi Shima,\n\nI would like to see a demo of ${title}.\n\nThanks,\n`);
     card.appendChild(a);
   });
 
