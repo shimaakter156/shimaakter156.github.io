@@ -82,6 +82,8 @@
   .demo-btn { margin-top: 14px; align-self: flex-start; border: 1px solid var(--accent); color: var(--accent); border-radius: 8px; padding: 7px 14px; font-weight: 600; font-size: .88rem; }
   .demo-btn:hover { background: var(--accent); color: #fff; }
 
+  .also { margin-top: 28px; color: var(--muted); background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 18px 22px; }
+  .also b { color: var(--text); }
   .mini .card { padding: 20px; }
   .mini .card p { color: var(--muted); font-size: .92rem; flex: 1; margin: 6px 0 14px; }
 
@@ -152,8 +154,8 @@
 
 <section id="projects">
   <div class="wrap">
-    <h2 class="title">Projects</h2>
-    <p class="sub">Enterprise systems I've built and maintain at ACI Limited.</p>
+    <h2 class="title">Featured Projects</h2>
+    <p class="sub">A selection of the systems I've built. Most are internal enterprise tools, so demos are available on request.</p>
     <div class="grid">
       <div class="card">
         <div class="meta">2023 – Present · All Divisions</div>
@@ -161,48 +163,6 @@
         <div class="kind">Enterprise-wide sales and distribution system</div>
         <ul><li>Multi-database architecture serving 1000+ retail outlets</li><li>Sales data maintained by distribution channel</li><li>Centralised data for pharma, consumer brands and logistics</li></ul>
         <div class="tags"><span class="tag">Laravel</span><span class="tag">Android</span><span class="tag">SQL Server</span></div>
-      </div>
-      <div class="card">
-        <div class="meta">2023 – Present · ACI Limited</div>
-        <h3>HR Connect — HRMS</h3>
-        <div class="kind">Human Resource Management System</div>
-        <ul><li>Leave, action plans, training and tax acknowledgement modules</li><li>Approval workflows, email templates and audit logging</li><li>Multi-level approval chains for SEP workflows</li></ul>
-        <div class="tags"><span class="tag">Laravel</span><span class="tag">Vue.js</span><span class="tag">SQL Server</span></div>
-      </div>
-      <div class="card">
-        <div class="meta">2024 – Present · Consumer Brands</div>
-        <h3>Field Force Tracker</h3>
-        <div class="kind">Real-time field force tracking system</div>
-        <ul><li>Tracks field activities and hourly schedules</li><li>Location-based tracking with interactive dashboards</li><li>Performance and productivity analysis for sales teams</li></ul>
-        <div class="tags"><span class="tag">Laravel</span><span class="tag">Vue.js</span><span class="tag">SQL Server</span><span class="tag">Postman</span></div>
-      </div>
-      <div class="card">
-        <div class="meta">2024 – Present · Logistics Division</div>
-        <h3>DSC — Daily Sales Collection</h3>
-        <div class="kind">Logistics and finance management system</div>
-        <ul><li>Tracks daily collections and outlet transactions</li><li>Billing and purchase requisition module</li><li>Automated reconciliation and audit trails</li></ul>
-        <div class="tags"><span class="tag">Laravel</span><span class="tag">Vue.js</span><span class="tag">SQL Server</span></div>
-      </div>
-      <div class="card">
-        <div class="meta">2024 – Present · PremiaFlex</div>
-        <h3>PremiaFlex Dashboard</h3>
-        <div class="kind">Business intelligence dashboard</div>
-        <ul><li>Production credit analytics and target monitoring</li><li>Real-time metrics with Chart.js</li><li>Business performance reporting</li></ul>
-        <div class="tags"><span class="tag">Laravel</span><span class="tag">Vue.js</span><span class="tag">Chart.js</span><span class="tag">SQL Server</span></div>
-      </div>
-      <div class="card">
-        <div class="meta">2024 – Present · CCPH Business</div>
-        <h3>DGA — Demand Generation Activities</h3>
-        <div class="kind">Marketing and sales activity tracking</div>
-        <ul><li>Campaign planning and management</li><li>ROI analysis and real-time activity monitoring</li><li>Campaign effectiveness analytics</li></ul>
-        <div class="tags"><span class="tag">Laravel</span><span class="tag">Vue.js</span><span class="tag">SQL Server</span></div>
-      </div>
-      <div class="card">
-        <div class="meta">2024 – Present · ACI Motors</div>
-        <h3>DMS — Dealer Management System</h3>
-        <div class="kind">Dealer management solution</div>
-        <ul><li>Dealer activity and performance tracking</li><li>Inventory and order processing</li><li>Reporting dashboard with filtering and export</li></ul>
-        <div class="tags"><span class="tag">Laravel</span><span class="tag">Vue.js</span></div>
       </div>
       <div class="card">
         <div class="meta">ACI Limited</div>
@@ -219,57 +179,35 @@
         <div class="tags"><span class="tag">Laravel</span><span class="tag">Vue 3</span><span class="tag">Vuetify</span><span class="tag">Pinia</span><span class="tag">Docker</span></div>
       </div>
       <div class="card">
-        <div class="meta">ACI Limited · Animal Health</div>
-        <h3>AH Prescription Survey</h3>
-        <div class="kind">Field survey system with mobile API</div>
-        <ul><li>Field force collects vet prescriptions via mobile app API</li><li>Data entry, verification and completed-prescription workflows</li><li>Product master, wholesale market rates and automated reports</li></ul>
-        <div class="tags"><span class="tag">Laravel</span><span class="tag">Vue.js</span><span class="tag">REST API</span><span class="tag">SQL Server</span></div>
+        <div class="meta">Healthcare</div>
+        <h3>Fatty Liver Clinic (FLC)</h3>
+        <div class="kind">Clinic software for a gastroenterology department</div>
+        <ul><li>MASLD, obesity, endocrinology and hepatitis B clinics, 10+ doctors</li><li>Patient queue (call) panel, follow-ups and in-app chat</li><li>Third-party integration and a mobile-ready API</li></ul>
+        <div class="tags"><span class="tag">Laravel</span><span class="tag">Vue 3</span><span class="tag">Pinia</span><span class="tag">Tailwind CSS</span></div>
       </div>
       <div class="card">
-        <div class="meta">ACI Motors</div>
-        <h3>Product Verification Portal</h3>
-        <div class="kind">Chassis-number authenticity check</div>
-        <ul><li>Customers verify genuine vehicles by chassis number</li><li>Secure login and visitor tracking</li></ul>
-        <div class="tags"><span class="tag">Laravel</span><span class="tag">JWT</span></div>
+        <div class="meta">Field Sales</div>
+        <h3>Field Force Expense Automation</h3>
+        <div class="kind">End-to-end field force expense system</div>
+        <ul><li>Dealer/customer visit check-in and check-out</li><li>Tour plans with Google Maps tracking</li><li>Expense approvals, GL integration and bank file generation</li></ul>
+        <div class="tags"><span class="tag">Laravel</span><span class="tag">Inertia</span><span class="tag">Vue 3</span><span class="tag">ApexCharts</span></div>
       </div>
       <div class="card">
-        <div class="meta">ACI Motors</div>
-        <h3>Customer Feedback System</h3>
-        <div class="kind">Multilingual customer feedback portal</div>
-        <ul><li>Bilingual feedback forms with chassis validation</li><li>reCAPTCHA v3 spam protection and email notifications</li></ul>
-        <div class="tags"><span class="tag">Laravel</span><span class="tag">reCAPTCHA</span></div>
+        <div class="meta">2023 – Present · ACI Limited</div>
+        <h3>HR Connect — HRMS</h3>
+        <div class="kind">Human Resource Management System</div>
+        <ul><li>Leave, action plans, training and tax acknowledgement modules</li><li>Approval workflows, email templates and audit logging</li><li>Multi-level approval chains for SEP workflows</li></ul>
+        <div class="tags"><span class="tag">Laravel</span><span class="tag">Vue.js</span><span class="tag">SQL Server</span></div>
       </div>
       <div class="card">
-        <div class="meta">ACI Limited</div>
-        <h3>Water Pump QR Portal</h3>
-        <div class="kind">QR-based product information page</div>
-        <ul><li>Customers scan a QR code to view product details</li><li>Multilingual, mobile-first pages</li></ul>
-        <div class="tags"><span class="tag">Laravel</span><span class="tag">Vite</span></div>
+        <div class="meta">Personal Project</div>
+        <h3>Vylura — Wellness &amp; Beauty Store</h3>
+        <div class="kind">Online store and admin dashboard, built twice</div>
+        <ul><li>Same product built in Laravel + Vue 3 and in Python FastAPI</li><li>Storefront, cart and admin dashboard</li><li>Documented REST API and smoke tests</li></ul>
+        <div class="tags"><span class="tag">Laravel</span><span class="tag">FastAPI</span><span class="tag">Python</span><span class="tag">Vue 3</span></div>
       </div>
     </div>
-  </div>
-</section>
-
-<section id="more">
-  <div class="wrap">
-    <h2 class="title">More Projects</h2>
-    <p class="sub">Other systems, APIs and personal builds.</p>
-    <div class="grid mini">
-      <div class="card"><h3>Fatty Liver Clinic (FLC)</h3><p>Clinic software for a gastroenterology department: MASLD, obesity, endocrinology and hepatitis B clinics, 10+ doctors, patient queue panel, follow-ups, chat and a mobile-ready API.</p><div class="tags"><span class="tag">Laravel</span><span class="tag">Vue 3</span><span class="tag">Pinia</span><span class="tag">Tailwind</span></div></div>
-      <div class="card"><h3>Field Force Expense Automation</h3><p>Check-in/check-out visits, tour plans, Google Maps tracking, expense approvals, GL integration and bank file generation.</p><div class="tags"><span class="tag">Laravel</span><span class="tag">Inertia</span><span class="tag">Vue 3</span><span class="tag">ApexCharts</span></div></div>
-      <div class="card"><h3>MDP Training &amp; HR Portal</h3><p>Management development plans, training feedback, leave, attendance sync, expense claims, gate pass, recruitment and an idea hub.</p><div class="tags"><span class="tag">Laravel</span><span class="tag">Vue.js</span><span class="tag">SQL Server</span><span class="tag">ECharts</span></div></div>
-      <div class="card"><h3>Shwapno Inventory Analytics</h3><p>Retail supply-chain and inventory analytics with outlet-level dashboards, funnels and Excel/PDF reports.</p><div class="tags"><span class="tag">Laravel</span><span class="tag">Vue.js</span><span class="tag">ApexCharts</span><span class="tag">SQL Server</span></div></div>
-      <div class="card"><h3>PDI — Pre-Delivery Inspection</h3><p>Vehicle pre-delivery inspection with mobile API, geolocation, Google Maps and inspection reports.</p><div class="tags"><span class="tag">Laravel</span><span class="tag">Vue.js</span><span class="tag">Google Maps</span></div></div>
-      <div class="card"><h3>Pharma Assist</h3><p>Pharmacy assistant with customer OTP registration, product search, drug entry and prescription upload via mobile API.</p><div class="tags"><span class="tag">Laravel</span><span class="tag">Vue.js</span><span class="tag">REST API</span></div></div>
-      <div class="card"><h3>Wholesale Market Rate</h3><p>Field reps submit wholesale market prices via mobile API; location-wise reports and automated emails.</p><div class="tags"><span class="tag">Laravel</span><span class="tag">Vue.js</span><span class="tag">REST API</span></div></div>
-      <div class="card"><h3>Factory Attendance &amp; Payroll</h3><p>Shifts, lines, floors, grades, hourly rates, holidays, leave, salary setup and attendance reports for factory staff.</p><div class="tags"><span class="tag">Laravel</span><span class="tag">DataTables</span><span class="tag">SQL Server</span></div></div>
-      <div class="card"><h3>Employee Attendance</h3><p>Attendance, leave balance and leave history with dashboards and Excel export.</p><div class="tags"><span class="tag">Laravel</span><span class="tag">Vue.js</span><span class="tag">SQL Server</span></div></div>
-      <div class="card"><h3>Tour Plan</h3><p>Field tour planning and action-plan tracking with maps and approvals.</p><div class="tags"><span class="tag">Laravel</span><span class="tag">Vue.js</span><span class="tag">Google Maps</span></div></div>
-      <div class="card"><h3>CCMF — Customer Visit Tracker</h3><p>Customer details, visit logging and visit comments with role-based admin.</p><div class="tags"><span class="tag">Laravel</span><span class="tag">Vue.js</span><span class="tag">SQL Server</span></div></div>
-      <div class="card"><h3>SAP Monitoring &amp; Stockout Tracker</h3><p>Internal monitoring dashboards for SAP data and distribution-centre stock counts.</p><div class="tags"><span class="tag">Laravel</span><span class="tag">Vue.js</span><span class="tag">Chart.js</span></div></div>
-      <div class="card"><h3>MSR API</h3><p>Lightweight JWT-secured REST API for mobile sales reporting.</p><div class="tags"><span class="tag">Lumen</span><span class="tag">JWT</span><span class="tag">SQL Server</span></div></div>
-      <div class="card"><h3>Vylura — Wellness &amp; Beauty Store</h3><p>Online store and admin dashboard built twice: Laravel + Vue 3, and Python FastAPI.</p><div class="tags"><span class="tag">Laravel</span><span class="tag">FastAPI</span><span class="tag">Python</span><span class="tag">Vue 3</span></div></div>
-    </div>
+    <p class="also"><b>Also built:</b> Field Force Tracker, Daily Sales Collection, PremiaFlex BI Dashboard, Dealer Management, Demand Generation, MDP Training &amp; HR Portal, Factory Attendance &amp; Payroll, Pre-Delivery Inspection, Pharma Assist, Inventory Analytics, Wholesale Market Rate, Product Verification and more. Happy to demo on request.</p>
   </div>
 </section>
 
@@ -354,7 +292,7 @@
 
 <script>
   /* Adds a "Request a demo" email button to every project card. */
-  document.querySelectorAll('#projects .card, #more .card').forEach(card => {
+  document.querySelectorAll('#projects .card').forEach(card => {
     const title = card.querySelector('h3').textContent.trim();
     const a = document.createElement('a');
     a.className = 'demo-btn';
