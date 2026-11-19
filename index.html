@@ -30,7 +30,16 @@
   .links a { color: var(--muted); font-weight: 500; font-size: .95rem; }
   .links a:hover { color: var(--text); }
   .theme-btn { background: var(--card); border: 1px solid var(--border); color: var(--text); border-radius: 8px; padding: 6px 10px; cursor: pointer; font-size: 1rem; }
-  @media (max-width: 720px) { .links a { display: none; } }
+  .links { gap: 10px; }
+  .menu { display: flex; gap: 22px; align-items: center; margin-right: 12px; }
+  .menu-btn { display: none; min-width: 40px; }
+  @media (max-width: 720px) {
+    .menu-btn { display: inline-block; }
+    .menu { display: none; position: absolute; top: 64px; left: 0; right: 0; margin: 0; flex-direction: column; align-items: stretch; gap: 0;
+            background: var(--bg2); border-bottom: 1px solid var(--border); box-shadow: 0 12px 24px rgba(0,0,0,.25); }
+    nav.open .menu { display: flex; }
+    .menu a { padding: 14px 20px; font-size: 1rem; border-top: 1px solid var(--border); }
+  }
 
   .hero { padding: 90px 0 70px; }
   .hero .hi { color: var(--accent2); font-weight: 600; margin-bottom: 12px; }
@@ -98,12 +107,15 @@
   <div class="wrap">
     <a href="#" class="logo">Shima<span>.</span></a>
     <div class="links">
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#experience">Experience</a>
-      <a href="#training">Training</a>
-      <a href="#contact">Contact</a>
+      <div class="menu" id="menu">
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#training">Training</a>
+        <a href="#contact">Contact</a>
+      </div>
       <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">☀️</button>
+      <button class="theme-btn menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="menu">☰</button>
     </div>
   </div>
 </nav>
@@ -315,6 +327,20 @@
     icon();
     try { localStorage.setItem('theme', root.dataset.theme); } catch (e) {}
   };
+
+  /* Phone menu: the ☰ button opens and closes the link list. */
+  const nav = document.querySelector('nav');
+  const menuBtn = document.getElementById('menuBtn');
+  const setMenu = open => {
+    nav.classList.toggle('open', open);
+    menuBtn.textContent = open ? '✕' : '☰';
+    menuBtn.setAttribute('aria-expanded', open);
+    menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  };
+  menuBtn.onclick = () => setMenu(!nav.classList.contains('open'));
+  document.querySelectorAll('#menu a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  document.addEventListener('click', e => { if (!nav.contains(e.target)) setMenu(false); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
 </script>
 </body>
 </html>
